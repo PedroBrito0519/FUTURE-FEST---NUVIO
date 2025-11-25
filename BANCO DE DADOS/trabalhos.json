@@ -1,0 +1,38 @@
+[
+  {
+    "titulo": "AC2 - 2TRI - Web design",
+    "descricao": "Desenvolver um servidor Node.js para gerenciar uma agenda de trabalhos escolares, permitindo que o usuário inclua, exclua e edite itens. As tarefas adicionadas devem ser exibidas em uma tabela com a possibilidade de filtrar por disciplina. UtilizeBootstrap para criar uma interface visualmente atraente e responsiva.",
+    "disciplina": "Web design",
+    "url_foto": "https://media.istockphoto.com/id/1371339413/photo/co-working-team-meeting-concept-businessman-using-smart-phone-and-digital-tablet-and-laptop.jpg?s=612x612&w=0&k=20&c=ysEsVw3q2axYt3oVZAuQjtHRlN3lY-U_e0ikK5yKIXQ="
+  },
+  {
+    "titulo": "Redes AC02 (2Tri)",
+    "descricao": "Faça todos os exercícios práticos em um arquivo chamado AC02-NOMEDADUPLA e os exercícios teóricos em um .TXT",
+    "disciplina": "Redes",
+    "url_foto": "https://media.sankhya.com.br/wp-content/uploads/2024/08/Ciberseguranca-.png"
+  },
+  {
+    "titulo": "Avaliação Contínua 2 (AC 2) | Análise de Sistemas",
+    "descricao": "  Os alunos deverao formar grupos e responder as seguintes questoes",
+    "disciplina": " Análise de Sistemas",
+    "url_foto": "https://blog.xpeducacao.com.br/wp-content/uploads/2022/12/diferenca-entre-sistema-de-informaca-e-analise-e-desenvolvimento-de-sistema.jpg"
+  },
+  {
+    "titulo": "LPII AC02 (2Tri)",
+    "descricao": "Desenvolver um servidor Node.js para gerenciar uma agenda de trabalhos escolares, permitindo que o usuário inclua, exclua e edite itens. As tarefas adicionadas devem ser exibidas em uma tabela com a possibilidade de filtrar por disciplina. Utilize Bootstrap para criar uma interface visualmente atraente e responsiva.",
+    "disciplina": "LPII",
+    "url_foto": "https://www.atrainformatica.com.br/wp-content/uploads/2023/04/Historia-das-linguagens-de-programacao.png"
+  },
+  {
+    "titulo": "Music Journey",
+    "descricao": "Entrega dos slides da apresentação em grupo. Instruções passadas em aula e postadas em Apostilas.",
+    "disciplina": "Ingles",
+    "url_foto": "https://portalhortolandia.com.br/wp-content/uploads/2024/03/curso-ingles.jpg"
+  },
+  {
+    "titulo": "Art HQ (1ºTRI) Acesso Mesa de Bordo, Quests e Sidequests AC 1",
+    "descricao": "Abra cada um dos anexos e leia-os atentamente, após isso acesse a Mesa de Bordo para encontrar mais direções. Qualquer dúvida conversamos na aula.",
+    "disciplina": "Art HQ",
+    "url_foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-k8m3OkF8isDGQYHBuYjUC7VuhVn1MmfMotPpPd-5litforD16EYi86vM6oPCV-y9rM4&usqp=CAU"
+  }
+]

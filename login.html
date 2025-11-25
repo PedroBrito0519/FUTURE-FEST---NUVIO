@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NUVIO - Login</title>
+  <link rel="stylesheet" href="CSS/cadastro.css" />
+  <script src="SCRIPT/LOGIN/login.js" defer></script>
+  <script src="SCRIPT/LOGIN/bancoLogin.js" defer></script> 
+  <link class="logo" rel="icon" href="ASSETS/LOGOS/FAVICON/FAVICON.png">
+</head>
+<body>
+  <a href="index.html" id="exit-page-btn" title="Sair da Página">x</a>
+  <div id="container">
+    <div id="left-panel">
+      <img src="ASSETS/LOGOS/DEITADO PNG/logoDeitadoPNG1.png" alt="Nuvio Logo" class="logo" />
+      <p>Não tem uma conta? <a href="cadastro.html">Crie Aqui</a></p>
+
+      <h2>LOGIN</h2>
+      <form id="login-form" novalidate>
+        <label for="email"><b>Email</b></label> <!-- Alterado de "usuario" para "email" -->
+        <input type="email" id="email" name="email" required placeholder="Digite seu email" />
+
+        <label for="senha"><b>Senha</b></label>
+        <input type="password" id="senha" name="senha" required placeholder="Digite sua senha" />
+
+        <button type="submit" id="login-btn">Entrar</button>
+      </form>
+
+      <div id="login-options">
+        <a href="esqueci-senha.html" id="esqueci-senha-btn">Esqueci a senha</a> | 
+        <a href="cadastro.html" id="criar-usuario-btn">Criar Usuário</a>
+      </div>
+
+      <footer>
+        <small>Copyright © 2025 Nuvio Company</small><br/>
+        <a href="#">Termos e serviços</a> | <a href="#">Política de privacidade</a>
+      </footer>
+    </div>
+
+    <div id="right-panel">
+      <img class="logo_bolhas" src="ASSETS/LOGOS/FAVICON/FAVICON.png" alt="Nuvio Logo Large" />
+      <p>PRODUTIVIDADE E SEGURANÇA</p>
+      <div class="area">
+        <ul class="circles">
+          <li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Erro -->
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <p id="error-message">Mensagem de erro aqui.</p>
+    </div>
+  </div>
+
+</body>
+</html>

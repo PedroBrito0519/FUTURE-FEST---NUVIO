@@ -1,0 +1,780 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+:root{
+  --neon: #0A325B;
+  --neon-weak: #021017;
+  --bg: white;
+  --panel: white;
+  --accent: #0A325B;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  height: 100vh;
+  color: var(--neon);
+  background: var(--bg);
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  padding: 20px;
+  border-right: 1px solid #00f6d3aa;
+  background: var(--panel);
+}
+
+.sidebar h2 {
+  margin: 0 0 18px 0;
+  text-align: center;
+  color: var(--neon);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--neon);
+  font-weight: 600;
+  transition: all .18s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: var(--neon);
+  color: var(--bg);
+}
+
+/* Main */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #00f6d3aa;
+  position: relative;
+}
+
+#currentPath {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: var(--neon);
+  color: var(--bg);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00f6d3cc;
+  transition: all .18s ease;
+}
+
+.btn:hover {
+  background: #01ffcc;
+  box-shadow: 0 0 15px #01ffccdd;
+}
+
+/* Sort dropdown */
+.sort-dropdown {
+  display: none;
+  position: absolute;
+  top: 54px;
+  right: 20px;
+  background: var(--panel);
+  border-radius: 6px;
+  border: 1px solid #00f6d3aa;
+  box-shadow: 0 0 15px #00f6d3aa;
+  z-index: 1200;
+  min-width: 180px;
+  overflow: hidden;
+}
+
+.sort-dropdown.show {
+  display: block;
+}
+
+.sort-dropdown div {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: var(--neon);
+  transition: background .12s ease;
+}
+
+.sort-dropdown div:hover {
+  background: var(--neon-weak);
+}
+
+/* File table */
+.file-list {
+  flex: 1;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #00f6d3aa;
+  color: var(--neon);
+  text-align: left;
+  font-size: 14px;
+}
+
+tr:hover {
+  background: var(--neon-weak);
+}
+
+/* Actions buttons in table */
+.actions button {
+  margin-right: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 0 8px #00f6d3cc;
+}
+
+.btn-delete {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+.btn-share {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-download {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-restore {
+  background: #ffc107;
+  color: #111;
+}
+
+.btn-permanent {
+  background: #5a8df0cc;
+  color: #fff;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg);
+  border: 1px solid #00f6d3aa;
+  padding: 18px;
+  border-radius: 8px;
+  width: 360px;
+  box-shadow: 0 0 14px #00f6d3aa;
+  color: var(--neon);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-content h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #00f6d3aa;
+  background: transparent;
+  color: var(--neon);
+  outline: none;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  width: 70%;
+  height: 7%;
+}
+
+
+/* Estilos do Menu Lateral */
+/* Estilos do Menu Lateral */
+.menu-lateral {
+  height: 100%;
+  width: 0; 
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0; 
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  color: #2fffd1 ;
+  background: linear-gradient(45deg,
+ #01080e);
+
+
+  background-size: 300% 300%;
+  animation: colors 7s infinite alternate;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 50% 0%;
+  }
+
+}
+
+.menu-lateral ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-lateral ul li {
+  padding: 30px 30px; 
+}
+
+.menu-lateral ul li a {
+  color: #2fffd1;
+  text-decoration: none;
+  font-size: 40px;
+  display: block;
+  transition: 0.3s;
+}
+
+.menu-lateral ul li a:hover {
+  transform: scale(1.05);
+  border-radius: 15px;
+  background: linear-gradient(45deg,
+    rgba(3, 68, 77, 0.294), #0e2f79);
+
+
+    background-size: 500% 330%;
+    animation: colors 7s infinite alternate;
+  }
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 50% 0%;
+    }
+
+}
+
+/* Botão de fechar */
+.menu-lateral .close-btn {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  font-size: 50px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-lateral-btn button {
+  background-color:  #17132200;
+  color: white;
+  border: none;
+  font-size: 35px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+header.rolagem .menu-lateral-btn button {
+  background-color:rgba(255, 255, 255, 0);
+  color:#2fffd1;
+  border: none;
+  font-size: 35px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.menu-lateral.open {
+  width: 700px; 
+  z-index: 9999;
+}
+
+.menu-lateral.open .menu-lateral-btn button {
+  font-size: 32px;
+  padding: 15px 25px;
+  background: linear-gradient(45deg,
+  #00b6cd,  #2fffd1);
+
+
+  background-size: 300% 300%;
+  animation: colors 7s infinite alternate;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 50% 0%;
+  }
+
+}
+/*BOTAO DE TEMA*/
+
+
+.theme-toggle-btn button {
+  margin: -40px;
+  width: 60px;               
+  height: 60px;             
+  background: linear-gradient(135deg, #0A325B,  #021017);
+  color: white;            
+  border: none;              
+  border-radius: 50%;        
+  font-size: 28px;          
+  display: flex;             
+  align-items: center;
+  justify-content: center;   
+  cursor: pointer;          
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 4px 12px #ffffff; 
+}
+
+.theme-toggle-btn button:hover {
+  background: linear-gradient(135deg, #0A325B,  #021017); 
+  transform: scale(1.1);     
+  box-shadow: 0 6px 16px #ffffff; 
+}
+
+.theme-toggle-btn button:active {
+  transform: scale(0.95);      
+  box-shadow: 0 2px 8px #ffffff; 
+}
+
+body.dark-theme .theme-toggle-btn button {
+  background: linear-gradient(135deg, #0A325B,  #021017); 
+  color: white;     
+  transition: 2s;               
+}
+
+body.dark-theme .theme-toggle-btn button:hover {
+  background: linear-gradient(135deg, #0A325B,  #021017); 
+  color: white;            
+  transition: 2s;        
+}
+
+body.dark-theme .theme-toggle-btn button {
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+/* ===== NOTION – ESTILO ===== */
+
+#btnNewNote {
+    display: none; /* só aparece quando a aba Notion estiver ativa */
+}
+
+/* Linhas da tabela do Notion */
+tr.note-row:hover {
+    background: rgba(10, 50, 91, 0.08);
+}
+
+.titulo-clickable {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Modal de Nota */
+#newNoteModal input,
+#newNoteModal select,
+#newNoteModal textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+#newNoteModal textarea {
+    resize: none;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 64px;
+        padding: 12px;
+    }
+    .logo {
+        width: 90%;
+    }
+}
+/* ============================
+   TEMAS (ESCOPO GLOBAL)
+=============================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+    --neon: #00f6d3;
+    --neon-weak: #01ffcc20;
+    --bg: #010214;
+    --panel: #010214cc;
+    --accent: #3a76f0;
+}
+
+/* ============================
+   ESTILOS BASE
+=============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  height: 100vh;
+  color: var(--neon);
+  background: var(--bg);
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================
+   SIDEBAR
+=============================== */
+
+.sidebar {
+  width: 220px;
+  padding: 20px;
+  border-right: 1px solid #00f6d3aa;
+  background: var(--panel);
+  transition: width .3s;
+}
+
+.sidebar h2 {
+  margin: 0 0 18px 0;
+  text-align: center;
+  color: var(--neon);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--neon);
+  font-weight: 600;
+  transition: all .18s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: var(--neon);
+  color: var(--bg);
+}
+
+/* ============================
+   MAIN
+=============================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #00f6d3aa;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* BOTÕES SUPERIORES */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: var(--neon);
+  color: var(--bg);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .18s;
+  box-shadow: 0 0 10px var(--neon);
+}
+
+/* ============================
+   TABELA
+=============================== */
+
+.file-list {
+  flex: 1;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #00f6d3aa;
+  color: var(--neon);
+  font-size: 14px;
+}
+
+tr:hover {
+  background: var(--neon-weak);
+}
+
+/* ============================
+   MODAL
+=============================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.6);
+  z-index: 2000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg);
+  border: 1px solid #00f6d3aa;
+  padding: 18px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 0 14px var(--neon);
+  color: var(--neon);
+}
+
+/* ============================
+   MENU LATERAL (MOBILE)
+=============================== */
+
+.menu-lateral {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  transition: .3s;
+  padding-top: 60px;
+  z-index: 9999;
+
+  background: linear-gradient(45deg, #01080e, #062031);
+  background-size: 300% 300%;
+  animation: colors 7s infinite alternate;
+}
+
+.menu-lateral.open {
+  width: 70%;
+}
+
+/* ============================
+   NOTION
+=============================== */
+
+#btnNewNote {
+  display: none;
+}
+
+tr.note-row:hover {
+  background: var(--neon-weak);
+}
+
+.titulo-clickable {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ============================
+   RESPONSIVIDADE REAL
+=============================== */
+
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 180px;
+    }
+}
+
+@media (max-width: 800px) {
+
+  body {
+      flex-direction: column;
+  }
+
+  .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #00f6d3aa;
+      text-align: center;
+  }
+
+  .container {
+      flex-direction: column;
+  }
+
+  table {
+      min-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .btn {
+        width: auto;
+    }
+
+    .sidebar {
+        padding: 12px;
+    }
+
+    .nav-item {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    #currentPath {
+        font-size: 13px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+

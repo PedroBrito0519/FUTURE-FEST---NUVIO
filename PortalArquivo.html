@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nuvio - Drive</title>
+    <link id="theme-style" rel="stylesheet" href="CSS/NUVEM/portal.css">
+    <script src="SCRIPT/NUVEM/portal.js" defer></script>
+    <script src="SCRIPT/menu.js" defer></script>
+    <script src="SCRIPT/script.js" defer></script>
+    <link class="logo" rel="icon" href="ASSETS/LOGOS/FAVICON/FAVICON.png">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <img class="logo" src="ASSETS/LOGOS/DEITADO PNG/logoDeitadoPNG3.png" alt="Logo">
+            <ul>
+                <li class="nav-item active" data-view="raiz">📂 Meus Arquivos</li>
+                <li class="nav-item" data-view="compartilhados">👥 Compartilhados</li>
+                <li class="nav-item" data-view="notion">📝 Notion</li>
+                <li class="nav-item" data-view="lixeira">🗑️ Lixeira</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div id="currentPath">📂 Meus Arquivos</div>
+                <div class="actions">
+                    <button id="btnBack" class="btn" onclick="goBack()" style="display:none;">⬅️ Voltar</button>
+                    <button id="btnNewFolder" class="btn" onclick="openNewFolderModal()">📁 Nova Pasta</button>
+                    <button id="btnUpload" class="btn" onclick="triggerUpload()">⬆️ Upload</button>
+                    <button id="sortBtn" class="btn">🔽 Ordenar</button>
+                    <!-- Nova Nota só aparece na aba NOTION (visibilidade controlada via JS) -->
+                    <button id="btnNewNote" class="btn" onclick="openNewNoteModal()">📝 Nova Nota</button>
+                    <button class="btn theme-toggle-icon" onclick="toggleTheme()">🌙</button>
+                    <button class="btn menu-lateral-icon" onclick="toggleMenu()">☰</button>
+                    
+                    <!-- Menu lateral -->
+                    <div id="menu-lateral" class="menu-lateral">
+                        <button class="close-btn" onclick="toggleMenu()">×</button>
+                        <ul>
+                            <li><a href="home.html">HOME</a></li>
+                            <li><a href="sobre.html">SOBRE</a></li>
+                            <li><a href="comoFunciona.html">COMO FUNCIONA?</a></li>
+                            <li><a href="login.html">LOGIN</a></li>
+                        </ul>
+                    </div>
+
+                    <input type="file" id="fileInput" style="display:none">
+                    <input type="file" id="folderInput" webkitdirectory directory style="display:none">
+                </div>
+
+                <!-- Dropdown Ordenação -->
+                <div id="sortOptions" class="sort-dropdown" aria-hidden="true">
+                    <div data-sort="name">📛 Nome</div>
+                    <div data-sort="date">📅 Data</div>
+                    <div data-sort="size">📏 Tamanho</div>
+                    <div data-sort="owner">👤 Carregado por</div>
+                    <div data-sort="noteImportance">Urgência (Notion)</div>
+<div data-sort="noteDate">Data de Validade (Notion)</div>
+
+                </div>
+            </header>
+
+            <!-- File Table / Notion Table -->
+            <section class="file-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Data</th>
+                            <th>Tema</th>
+                            <th>Importância</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fileTable">
+                        <tr><td colspan="5" style="text-align:center;">Pasta vazia.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Nova Pasta -->
+    <div id="newFolderModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <h2>Nova pasta</h2>
+            <input id="newFolderName" placeholder="Nome da nova pasta">
+            <div class="modal-actions">
+                <button id="createFolderBtn" class="btn">Criar</button>
+                <button id="cancelBtn" class="btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nova / Editar Nota -->
+    <div id="newNoteModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <h2 id="noteModalTitle">Nova Nota</h2>
+            <input id="noteTitle" placeholder="Título da tarefa">
+            <input id="noteDate" type="date" placeholder="Data da tarefa">
+            <input id="noteTheme" placeholder="Tema">
+            <select id="noteImportance">
+                <option value="alta">Alta</option>
+                <option value="media">Média</option>
+                <option value="baixa">Baixa</option>
+            </select>
+            <textarea id="noteDescription" placeholder="Descrição da tarefa" rows="4"></textarea>
+            <div class="modal-actions">
+                <button id="createNoteBtn" class="btn">Criar Nota</button>
+                <button id="cancelNoteBtn" class="btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

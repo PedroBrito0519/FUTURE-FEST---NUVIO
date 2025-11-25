@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NUVIO - Cadastro</title>
+  <link rel="stylesheet" href="CSS/cadastro.css" />
+  <script src="SCRIPT/LOGIN/cadastro.js" defer></script> <!-- JS de cadastro -->
+  <script src="SCRIPT/LOGIN/bancoLogin.js" defer></script>
+  <link class="logo" rel="icon" href="ASSETS/LOGOS/FAVICON/FAVICON.png">
+</head>
+<body>
+  <a href="index.html" id="exit-page-btn" title="Sair da Página">x</a>
+
+  <div id="container">
+    <div id="left-panel">
+      <img src="ASSETS/LOGOS/DEITADO PNG/logoDeitadoPNG1.png" alt="Nuvio Logo" class="logo" />
+      <p>Já tem uma conta? <a href="login.html">Entre Aqui</a></p>
+
+      <h2>CADASTRO</h2>
+      <form id="cadastro-form" novalidate>
+        <label for="email"><b>Email</b></label>
+        <input type="email" id="email" name="email" required placeholder="Digite seu email" />
+
+        <label for="senha"><b>Senha</b></label>
+        <input type="password" id="senha" name="senha" required placeholder="Digite sua senha" />
+
+        <label for="confirma-senha"><b>Confirme sua Senha</b></label>
+        <input type="password" id="confirma-senha" name="confirma-senha" required placeholder="Confirme sua senha" />
+
+        <button type="submit" id="cadastro-btn">Criar Conta</button>
+      </form>
+
+      <footer>
+        <small>Copyright © 2025 Nuvio Company</small><br/>
+        <a href="#">Termos e serviços</a> | <a href="#">Política de privacidade</a>
+      </footer>
+    </div>
+
+    <div id="right-panel">
+      <img class="logo_bolhas" src="ASSETS/LOGOS/FAVICON/FAVICON.png" alt="Nuvio Logo Large" class="logo-large" />
+      <p>PRODUTIVIDADE E SEGURANÇA</p>
+      <div class="area">
+        <ul class="circles">
+          <li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal de erro -->
+<div id="errorModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <p id="error-message">Mensagem de erro aqui.</p>
+  </div>
+</div>
+
+</body>
+</html>

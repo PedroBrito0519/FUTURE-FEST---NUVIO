@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <title>Nuvio - Como funciona?</title>
+
+<!--BOOTSTRAP-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+<script src="bootstrap-5.1.3-dist/js/bootstrap.js" defer></script>
+
+    <!--fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap" rel="stylesheet">
+
+
+    <!--card3d-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <!--css e script-->
+    <link id="theme-style" rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/chat.css">
+    <script src="SCRIPT/menu.js" defer></script>
+    <script src="SCRIPT/script.js" defer></script>
+    <script src="SCRIPT/NUVEM/erro.js" defer></script>
+    <script src="SCRIPT/CHAT/chat.js" defer></script>
+
+    <link class="logo" rel="icon" href="ASSETS/LOGOS/FAVICON/FAVICON.png">
+</head>
+
+
+
+    <!-- Tela de carregamento-->
+
+<body onload="hideLoadingScreen()">
+ 
+    <div id="loading-screen">
+        <div class="loading-container">
+                <img src="ASSETS/GIFS/NuvemProtecao.gif" alt="nuvem segura" class="loading-coin">
+            <p class="loading-text">Carregando...</p>
+        </div>
+    </div>
+   
+
+
+
+   <div id="chat-button" class="chat-bubble">
+        💬
+    </div>
+    
+    <!-- Container do Chat -->
+    <div class="chat-container" id="chat-container">
+        <!-- Cabeçalho do Chat -->
+        <div class="chat-header">
+            <img src="ASSETS/LOGOS/FAVICON/FAVICON.png" alt="Logo" class="logo">
+            <div class="name">Nuvy Bot</div>
+            <button id="restart-button" class="reset-btn" onclick="resetChat()"><i class="bi bi-arrow-counterclockwise"></i></button>
+            <button id="close-chat-button" class="reset-btn" onclick="closeChat()" style="display:none;"><i class="bi bi-x-lg"></i></button> <!-- Novo botão de fechar -->
+        </div>
+    
+        <!-- Caixa de Mensagens -->
+        <div class="chat-box">
+            <div id="messages" class="messages"></div>
+        </div>
+    
+        <!-- Campo de Entrada e Botão Enviar -->
+        <input id="user-input" type="text" placeholder="Digite sua mensagem...">
+        <button id="send-btn" onclick="sendMessage()">Enviar</button> 
+    </div>
+    
+    <!-- Fim do chatbot -->
+    
+<main>  <div class="cookies-msg" id="cookies-msg">
+    <div class="cookies-txt">
+        <p class="txtCookiesP"> Este site usa cookies e tecnologias afins, que são pequenos arquivos ou pedaços de texto baixados para um aparelho quando o visitante acessa um website ou aplicativo. Ao utilizar nosso site você está de acordo com a utilização dos cookies para te proporcionar uma melhor experiência.</p>
+
+        <div class="cookies-btn">
+            <button onclick="aceito()">Aceito</button>
+        </div>
+    </div>
+</div><!--cookies-msg-->
+
+    <!--HEADER-->  <!--HEADER-->
+     <header id="header">
+        <div class="container">
+            <div class="flex">
+                <div class="logo">
+                    <a href="home.html">
+                        <img class="logo" src="ASSETS/LOGOS/DEITADO PNG/logoDeitadoPNG2.png" alt="">
+                    </a>
+                </div><!--logo-->
+                
+                <nav>
+                    <ul class="menu-principal">
+                        <li class="menu-item">
+                            <a href="home.html">HOME</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nossa missão</a></li>
+                                <li><a href="#">Nosso trabalho</a></li>
+                                <li><a href="#">Contato</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="sobre.html">SOBRE</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Sobre</a></li>
+                                <li><a href="#">Fundação</a></li>
+                                <li><a href="#">Equipe</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="comoFunciona.html">COMO FUNCIONA?</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Funcionamento</a></li>
+                                <li><a href="#">IA da nuvio</a></li>
+                                <li><a href="#">Planos</a></li>
+                               
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+    
+              
+
+           <!-- Botão de alternância de tema -->
+<!-- Modal de Tema -->
+ <!-- Botão de alternância de tema -->
+<div class="theme-toggle-btn">
+  <button onclick="toggleTheme()">🎨</button>
+</div>
+
+<div id="modal-tema" class="modal-tema">
+  <div class="modal-tema-content">
+    <h2>Escolha um tema</h2>
+    <button onclick="setTheme('light')">🌞 Tema Claro</button>
+    <button onclick="setTheme('dark')">🌙 Tema Escuro</button>
+    <button onclick="setTheme('acessibilidade')">♿ Tema Acessível</button>
+    <button class="fechar-modal" onclick="fecharModalTema()">Cancelar</button>
+  </div>
+</div>
+<!--btn login-->
+  <div class="btn-contato">
+                    <a class="btn-contato" href="login.html"><button>LOGIN</button></a>
+                </div>
+
+                <!-- Botão para abrir o menu lateral -->
+                <div class="menu-lateral-btn">
+                    <button onclick="toggleMenu()">☰</button>
+                </div>
+                
+            </div><!--flex-->
+        </div><!--container-->
+    </header>
+    
+    <!-- Menu lateral -->
+    <div id="menu-lateral" class="menu-lateral">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li><a href="comoFunciona.html">COMO FUNCIONA?</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+
+        </ul>
+    </div>
+
+    
+    <!-- Menu lateral -->
+    <div id="menu-lateral" class="menu-lateral">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li><a href="comoFunciona.html">COMO FUNCIONA?</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+
+        </ul>
+    </div>
+
+
+<!--CARROSSEL TELA INICIAL-->
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="bannerHome" src="ASSETS/DESKTOP/bannerInicial_Desktop.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Seus dados seguros</h5>
+        <p style="color: white;">uma empresa totalmente focada em produtividade e segurança</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="bannerHome" src="ASSETS/DESKTOP/bannerInicial_Desktop2.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Produtividade</h5>
+        <p style="color: white;">Facilidade ao salvar seus dados</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="bannerHome" src="ASSETS/DESKTOP/bannerInicial_Desktop3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Segurança</h5>
+        <p style="color: white;">Criptografia de ponta nos seus dados</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!--NOSSAS AREAS-->
+           <section class="nosso-espaco">
+            <div class="detalhes">
+                <div class="imgs-espaco">
+                   
+                    
+                    <img class="img-espaco" src="assets/imagemSobreUm.png"
+                        alt="Espaço iluminado pelo sol com design futurista composto por piscina e plantas">
+                  
+                </div>
+                <div class="espaco-textos">
+                    <h2 class="titulo">Como funciona a <span>nuvio?
+                                            </span></h2>
+                    <p class="infos">O cliente poderá guardar qualquer tipo de arquivos e organizar sua rotina, seu dia a dia, até sua dieta. Organizando as informações do mais simples até o mais importante, organizando por datas e urgências, além de dar alertas para organizar, com uma criptografia segura. </p>
+                  
+                </div>
+            </div>
+            <div class="detalhes">
+                <div class="imgs-espaco">
+                    
+                    <img class="img-espaco" src="ASSETS/MASCOTES/PNG/Mascote 2D.png" alt="Espaço com uma piscina e um sofá ao fundo">
+                </div>
+                <div class="espaco-textos">
+                    <h2 class="titulo">Nuvy, Nossa IA que vai te ajudar a organizar</h2>
+                    <p class="infos">Nossa inteligência artificial te ajuda a organizar sua rotina, seus arquivos, te dando dicas e conselhos para uma organização mais rápida e eficiente, auxílio de dúvida e te informar qualquer atualização envolvendo nosso site. ua dieta. Organizando as informações do mais simples até o mais importante, organizando por datas e urgências, além de dar alertas para organizar, com uma criptografia segura..</p>
+                     <div class="btn-contato">
+                    <a class="btn-contato" href="login.html"><button>LOGIN</button></a>
+                </div>
+                   
+                </div>
+            </div>
+        </section>
+       <!DOCTYPE html>
+
+
+  <section class="planos" id="planos">
+    <h2 class="titulo-planos">PLANOS</h2>
+    <div class="container-planos">
+
+      <div class="plano-card" data-plano="gratis">
+        <h3>Plano Grátis</h3>
+        <ul>
+          <li>- 2 GB de espaço</li>
+          <li>- Quantidade limitada de listas (Max 10)</li>
+        </ul>
+        <p class="preco">0R$</p>
+        <button class="btn-plano">Confira</button>
+      </div>
+
+      <div class="plano-card" data-plano="prata">
+        <h3>Plano Prata</h3>
+        <ul>
+          <li>- 5 GB de espaço</li>
+          <li>- Quantidade ilimitada de notas</li>
+          <li>- IA para organizar sua rotina</li>
+        </ul>
+        <p class="preco">15R$ <small>mensais</small></p>
+        <button class="btn-plano">Confira</button>
+      </div>
+
+      <div class="plano-card" data-plano="dima">
+        <h3>Plano Dima</h3>
+        <ul>
+          <li>- 10 GB de espaço</li>
+          <li>- Quantidade ilimitada de listas</li>
+          <li>- IA para organizar sua rotina</li>
+          <li>- Consultoria personalizada com IA</li>
+        </ul>
+        <p class="preco">40R$ <small>mensais</small></p>
+        <button class="btn-plano">Confira</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL PLANOS -->
+  <div id="modalPlanos" class="modal">
+    <div class="modal-conteudo">
+      <span class="fechar">&times;</span>
+      <div class="modal-esquerda">
+        <h2 id="tituloPlano">Plano</h2>
+        <ul class="beneficios" id="beneficiosPlano"></ul>
+        <div class="acoes" id="botoesPlano"></div>
+      </div>
+      <div class="modal-direita">
+        <h1>Nuvio</h1>
+        <img src="ASSETS/MASCOTES/PNG/Mascote 2D.png" alt="Nuvio IA">
+       
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CADASTRO -->
+  <div id="modalCadastro" class="modal-cadastro">
+    <div class="cadastro-conteudo">
+      <span class="fechar-cadastro">&times;</span>
+      <h2>Cadastro de Assinatura</h2>
+      <input type="text" placeholder="Nome completo">
+      <input type="text" placeholder="CPF">
+      <input type="number" placeholder="Idade">
+      <input type="email" placeholder="E-mail">
+      <input type="tel" placeholder="Telefone">
+      <input type="text" placeholder="Número do cartão de crédito">
+      <input type="text" placeholder="Validade (MM/AA)">
+      <input type="text" placeholder="CVV">
+      <button>Confirmar compra</button>
+    </div>
+  </div>
+
+
+<!--cCONTATO--> 
+ <section class="contact-section">
+    <div class="contact-left">
+        <h3>Fique por dentro das novidades</h3>
+        <form class="contact-form">
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Cadastre seu email" required>
+            <input type="password" placeholder="Cadastre sua senha" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="contact-right">
+        <p>Atualizações de e-books, novos livros, promoções e outros.</p>
+        <p class="copyright">© 2025 Nuvio</p>
+    </div>
+</section>
+
+  
+   <!--FOOTER-->
+
+    <footer class="footer">
+       <img class="logo_footer" src="ASSETS/LOGOS/DEITADO PNG/logoDeitadoPNG2.png" alt="">
+        <ul class="lista-footer">
+            <li class="lista-footer__titulo">Parceiros</li>
+            <li class="lista-footer__item">
+                <img class="logosFooter" src="https://tse3.mm.bing.net/th/id/OIP.5UQkFzL8qcxAU31neeib4wAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo da casa do código">
+                <a href="https://www.fiap.com.br/colegio/" class="lista-footer__link">Fiap school</a>
+            </li>
+            <li class="lista-footer__item">
+                <img class="logosFooter" src="https://robertoalegre.github.io/Portafolio/assets/logo-alura.png" alt="Logo da caelum">
+                <a href="https://www.alura.com.br/" class="lista-footer__link">Alura</a>
+            </li>
+            <li class="lista-footer__item">
+                <img class="logosFooter" src="https://i.scdn.co/image/ab6765630000ba8a9543f1ed639f9830d951f154" alt="Logo da caelum">
+                <a href="https://www.fiap.com.br/" class="lista-footer__link">FIAP</a>
+            </li>
+        </ul>
+
+        <ul class="lista-footer">
+            <li class="lista-footer__titulo">Comunidades</li>
+            <li class="lista-footer__item">
+                <img class="logosFooter" src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN" alt="Logo da Alura">
+                <a href="#" class="lista-footer__link">Whatzap</a>
+            </li>
+            <li class="lista-footer__item">
+                <img class="logosFooter" src="https://store-images.s-microsoft.com/image/apps.37935.9007199266245907.b029bd80-381a-4869-854f-bac6f359c5c9.91f8693c-c75b-4050-a796-63e1314d18c9?h=210" alt="Logo da Alura para Empresas">
+                <a href="#" class="lista-footer__link">facebook</a>
+            </li>
+            <li class="lista-footer__item">
+                <img class="logosFooter" src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDaK1XdUso6cUMpI9hAdPUU_FNs11cY1X284vsHrnWtRw7oqRpN1m9YAg21d_aNKnIo-&format=source&h=210" alt="Logo da Alura Latam">
+                <a href="#" class="lista-footer__link">discord</a>
+            </li>
+        </ul>
+
+        <ul class="lista-footer">
+            <li class="lista-footer__titulo">Contatos</li>
+            <li class="lista-footer__item">
+             
+                <a href="#" class="lista-footer__link">(11) 90000-0000</a>
+            </li>
+            <li class="lista-footer__item">
+        
+                <a href="#" class="lista-footer__link">nuvioBcorp@gmail.com</a>
+            </li>
+           
+        </ul>
+     
+    </footer>
+
+
+
+
+</body>
+</html>
